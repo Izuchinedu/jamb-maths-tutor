@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { FormEvent, useState } from "react";
 
 type Message = {
-  sender: "student" | "tutor";
+  sender: "student" | "teacher";
   text: string;
 };
 
@@ -12,7 +11,7 @@ export default function TutorPage() {
   const [question, setQuestion] = useState("");
   const [messages, setMessages] = useState<Message[]>([
     {
-      sender: "tutor",
+      sender: "teacher",
       text: "Hello. I am your JAMB Maths Teacher. Ask me any JAMB Mathematics question, and I will explain it step by step.",
     },
   ]);
@@ -29,15 +28,15 @@ export default function TutorPage() {
       text: question,
     };
 
-    const tutorReply: Message = {
-      sender: "tutor",
+    const teacherReply: Message = {
+      sender: "teacher",
       text: "The online teacher is not connected yet. Soon, this platform will help you solve JAMB Mathematics questions step by step.",
     };
 
     setMessages((currentMessages) => [
       ...currentMessages,
       studentQuestion,
-      tutorReply,
+      teacherReply,
     ]);
 
     setQuestion("");
@@ -46,22 +45,13 @@ export default function TutorPage() {
   return (
     <main className="min-h-screen bg-slate-50 px-6 py-10 text-slate-900">
       <div className="mx-auto max-w-4xl">
-        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-          <div>
-            <p className="text-sm font-semibold text-green-700">Maths Teacher</p>
-            <h1 className="mt-2 text-3xl font-bold">Ask your Mathematics teacher</h1>
-            <p className="mt-3 text-slate-600">
-              This is the first placeholder version. We will connect the online
-              teacher later.
-            </p>
-          </div>
-
-          <Link
-            href="/dashboard"
-            className="rounded-xl border border-slate-300 bg-white px-4 py-2 font-semibold hover:bg-slate-100"
-          >
-            Back to Dashboard
-          </Link>
+        <div>
+          <p className="text-sm font-semibold text-green-700">Maths Teacher</p>
+          <h1 className="mt-2 text-3xl font-bold">Ask the Maths Teacher</h1>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            Type a JAMB Mathematics question and the online teacher area will
+            show the student question and a placeholder reply.
+          </p>
         </div>
 
         <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
