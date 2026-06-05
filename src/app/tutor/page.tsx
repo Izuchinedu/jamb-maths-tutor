@@ -31,9 +31,7 @@ export default function TutorPage() {
 
     const tutorReply: Message = {
       sender: "tutor",
-      text:
-        "Maths teacher is not connected yet. Soon, I will help you solve JAMB Mathematics questions step by step. For now, your question has been received: " +
-        question,
+      text: "The online teacher is not connected yet. Soon, this platform will help you solve JAMB Mathematics questions step by step.",
     };
 
     setMessages((currentMessages) => [
@@ -53,8 +51,8 @@ export default function TutorPage() {
             <p className="text-sm font-semibold text-green-700">Maths Teacher</p>
             <h1 className="mt-2 text-3xl font-bold">Ask your Mathematics teacher</h1>
             <p className="mt-3 text-slate-600">
-              This is the first placeholder version. We will connect the real AI
-              tutor later.
+              This is the first placeholder version. We will connect the online
+              teacher later.
             </p>
           </div>
 
