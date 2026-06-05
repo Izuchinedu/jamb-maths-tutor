@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 
 const questions = [
@@ -49,34 +48,44 @@ export default function QuizPage() {
     (question) => selectedAnswers[question.id] === question.answer
   ).length;
 
+  function retakeQuiz() {
+    setSelectedAnswers({});
+    setSubmitted(false);
+  }
+
   return (
     <main className="min-h-screen bg-slate-50 px-6 py-10 text-slate-900">
       <div className="mx-auto max-w-4xl">
-        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-          <div>
-            <p className="text-sm font-semibold text-green-700">Practice Quiz</p>
-            <h1 className="mt-2 text-3xl font-bold">JAMB-style Mathematics quiz</h1>
-            <p className="mt-3 text-slate-600">
-              Answer the questions, submit, and check the explanations.
-            </p>
-          </div>
-
-          <Link
-            href="/dashboard"
-            className="rounded-xl border border-slate-300 bg-white px-4 py-2 font-semibold hover:bg-slate-100"
-          >
-            Back to Dashboard
-          </Link>
+        <div>
+          <p className="text-sm font-semibold text-green-700">Practice Quiz</p>
+          <h1 className="mt-2 text-3xl font-bold">JAMB-style Mathematics quiz</h1>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            Answer the questions, submit, and check the explanations.
+          </p>
         </div>
 
         {submitted && (
           <div className="mt-8 rounded-2xl border border-green-200 bg-green-50 p-5">
-            <h2 className="text-xl font-bold text-green-800">
-              Your score: {score} out of {questions.length}
-            </h2>
-            <p className="mt-2 text-green-800">
-              Review the answers below and study the explanations carefully.
+            <p className="text-sm font-bold uppercase tracking-wide text-green-700">
+              Quiz result
             </p>
+            <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h2 className="text-2xl font-bold text-green-900">
+                  {score} / {questions.length} correct
+                </h2>
+                <p className="mt-2 text-green-800">
+                  Review the answers below and study the explanations carefully.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={retakeQuiz}
+                className="rounded-xl border border-green-700 bg-white px-5 py-3 font-semibold text-green-800 hover:bg-green-100"
+              >
+                Retake Quiz
+              </button>
+            </div>
           </div>
         )}
 
@@ -128,13 +137,23 @@ export default function QuizPage() {
           ))}
         </section>
 
-        <button
-          type="button"
-          onClick={() => setSubmitted(true)}
-          className="mt-8 rounded-xl bg-green-700 px-6 py-3 font-semibold text-white hover:bg-green-800"
-        >
-          Submit Quiz
-        </button>
+        {!submitted ? (
+          <button
+            type="button"
+            onClick={() => setSubmitted(true)}
+            className="mt-8 rounded-xl bg-green-700 px-6 py-3 font-semibold text-white hover:bg-green-800"
+          >
+            Submit Quiz
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={retakeQuiz}
+            className="mt-8 rounded-xl bg-green-700 px-6 py-3 font-semibold text-white hover:bg-green-800"
+          >
+            Retake Quiz
+          </button>
+        )}
       </div>
     </main>
   );
