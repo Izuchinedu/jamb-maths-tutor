@@ -40,6 +40,7 @@ export async function POST(request: Request) {
     headers: {
       Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
       "Content-Type": "application/json",
+      "OpenAI-Safety-Identifier": "anonymous-jamb-maths-teacher-user",
     },
     body: JSON.stringify({
       expires_after: {
@@ -48,7 +49,7 @@ export async function POST(request: Request) {
       },
       session: {
         type: "realtime",
-        model: "gpt-realtime",
+        model: "gpt-realtime-2",
         output_modalities: ["audio"],
         instructions: `${baseInstructions} The selected lesson topic is ${topic}.`,
         audio: {
