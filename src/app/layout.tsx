@@ -6,6 +6,8 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/dashboard", label: "Dashboard" },
   { href: "/tutor", label: "Ask Teacher" },
+  { href: "/live-class", label: "Live Class" },
+  { href: "/live-board", label: "Live Board" },
   { href: "/quiz", label: "Quiz" },
   { href: "/admin", label: "Admin" },
 ];
