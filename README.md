@@ -71,6 +71,7 @@ If microphone access is blocked, allow it in your browser settings and try again
 
 Future versions will connect the board to the live voice teacher, Nigerian-accent voice, and a more realistic teacher visual.
 
+
 ## Build
 
 Run the production build check:
