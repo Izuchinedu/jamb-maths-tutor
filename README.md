@@ -8,6 +8,7 @@ JAMB Maths Teacher is an online Mathematics learning platform for Nigerian stude
 - Student dashboard with JAMB Mathematics topic cards.
 - Ask Teacher page with a placeholder question-and-response experience.
 - Live Class page where a student can join a voice session and ask JAMB Mathematics questions.
+- Live Board page with a teacher-style panel and step-by-step board writing.
 - Practice quiz with five sample Mathematics questions, scoring, and explanations.
 - Simple admin page for reviewing starter topics and adding sample questions during a session.
 
@@ -63,6 +64,13 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 8. Click **End Session** when you are done.
 
 If microphone access is blocked, allow it in your browser settings and try again. If the server key is missing, the page will show a friendly setup message.
+
+## Live Board prototype
+
+`/live-board` is the first Live Board Teacher prototype for JAMB Maths Teacher. It shows a teacher-style panel beside a classroom board, then writes a sample solution step by step after a student starts the board lesson.
+
+Future versions will connect the board to the live voice teacher, Nigerian-accent voice, and a more realistic teacher visual.
+
 
 ## Build
 
